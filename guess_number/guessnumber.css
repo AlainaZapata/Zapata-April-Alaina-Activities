@@ -1,0 +1,31 @@
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    background-color: blueviolet;
+}
+
+.container {
+    margin: 100px auto;
+    width: 300px;
+    padding: 100px;
+    background: violet;
+    box-shadow: black;
+    border-radius: 8px;
+}
+
+input {
+    width: 80px;
+    padding: 10px;
+    margin: 10px 0;
+    font-size: 16px;
+}
+
+button:hover{
+    background-color:beige;
+}
+
+#message {
+    font-size: 20px;
+    margin-top: 15px;
+    color: #333;
+}
