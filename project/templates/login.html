@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+    <script src="https://cdn.tailwindcss.com"></script> <!-- Tailwind CSS -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body class="bg-gradient-to-r from-pink-200 via-pink-300 to-red-100 py-10 font-inter">
+
+    <!-- Main Container with shadow and padding -->
+    <div class="max-w-md mx-auto bg-white p-8 rounded-xl shadow-2xl space-y-6">
+
+        <!-- Title -->
+        <h2 class="text-3xl font-semibold text-gray-800 text-center">Login</h2>
+
+        <!-- Login Form -->
+        <form action="/check_user" method="POST" class="space-y-6">
+
+            <!-- Username Input -->
+            <div class="flex flex-col space-y-2">
+                <label for="username" class="text-sm font-medium text-gray-600">Username</label>
+                <input type="text" name="username" class="p-4 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-pink-400" required placeholder="Enter your username">
+            </div>
+
+            <!-- Password Input -->
+            <div class="flex flex-col space-y-2">
+                <label for="password" class="text-sm font-medium text-gray-600">Password</label>
+                <input type="password" name="password" class="p-4 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-pink-400" required placeholder="Enter your password">
+            </div>
+
+            <!-- Login Button -->
+            <div class="text-center">
+                <button type="submit" class="px-8 py-4 bg-pink-500 text-white rounded-lg hover:bg-pink-400 focus:outline-none transition-all ease-in-out duration-300 shadow-md">
+                    Login
+                </button>
+            </div>
+        </form>
+
+        <!-- Registration Link -->
+        <div class="text-center mt-4">
+            <p class="text-gray-600">Don't have an account? 
+                <a href="/register" class="text-pink-500 hover:text-pink-600">Register here</a>
+            </p>
+        </div>
+    </div>
+    <!-- Place this at the bottom of your <body> -->
+<script src="{{ url_for('static', filename='js/login.js') }}"></script>
+<script src="https://cdn.tailwindcss.com"></script>
+
+
+</body>
+</html>

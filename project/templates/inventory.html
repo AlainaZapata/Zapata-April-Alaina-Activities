@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Inventory</title>
+    <script src="https://cdn.tailwindcss.com"></script> 
+    
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body class="bg-gradient-to-r from-pink-200 via-pink-300 to-red-100 py-10 font-inter">
+
+    <!-- Main Container with shadow and padding -->
+    <div class="max-w-6xl mx-auto bg-white p-8 rounded-xl shadow-2xl space-y-6">
+
+        <!-- Title and Logout Button -->
+        <div class="flex justify-between items-center mb-6">
+            <h2 class="text-4xl font-semibold text-gray-800">Inventory Management</h2>
+            <button onclick="logout()" class="px-6 py-3 text-white bg-red-500 rounded-md hover:bg-red-400 transition-all ease-in-out duration-300 shadow-md">Logout</button>
+        </div>
+
+        <!-- Product Form -->
+        <form id="productForm" onsubmit="addProduct(event)" class="space-y-6 mb-8 bg-pink-50 p-6 rounded-lg shadow-lg">
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div class="flex flex-col space-y-1">
+                    <label for="name" class="text-sm font-medium text-gray-600">Product Name</label>
+                    <input type="text" class="p-4 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-pink-400" placeholder="Product Name" id="name" required>
+                </div>
+                <div class="flex flex-col space-y-1">
+                    <label for="price" class="text-sm font-medium text-gray-600">Price</label>
+                    <input type="number" class="p-4 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-pink-400" placeholder="Price" id="price" required>
+                </div>
+                <div class="flex flex-col space-y-1">
+                    <label for="quantity" class="text-sm font-medium text-gray-600">Quantity</label>
+                    <input type="number" class="p-4 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-pink-400" placeholder="Quantity" id="quantity" required>
+                </div>
+                <div class="flex flex-col space-y-1">
+                    <label for="category" class="text-sm font-medium text-gray-600">Category</label>
+                    <select id="category" class="p-4 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-pink-400" required>
+                        <option value="">Select Category</option>
+                        <option value="Milk Tea">Milk Tea</option>
+                        <option value="Coffee">Coffee</option>
+                        <option value="Add-On">Add-On</option>
+                    </select>
+                </div>
+                <div class="col-span-1 sm:col-span-2 lg:col-span-4 text-center mt-4">
+                    <button type="submit" class="px-8 py-4 bg-pink-500 text-white rounded-lg hover:bg-pink-400 focus:outline-none transition-all ease-in-out duration-300 shadow-md">Add Product</button>
+                
+                <div class="text-center">
+                    <button type="button" id="cancelEditBtn" onclick="resetFormState()" class="hidden mt-2 px-6 py-3 bg-gray-400 text-white rounded-md hover:bg-gray-300 transition-all">Cancel Edit</button>
+                </div>
+            </div>
+                
+            </div>
+        </form>
+
+        <!-- Category Filter/Search Bar -->
+        <div class="bg-white p-4 rounded-lg shadow-md">
+            <select id="categoryFilter" class="w-full p-4 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-pink-400" onchange="fetchProducts()">
+                <option value="">All Categories</option>
+                <option value="Milk Tea">Milk Tea</option>
+                <option value="Coffee">Coffee</option>
+                <option value="Add-On">Add-On</option>
+            </select>
+        </div>
+
+        <!-- Product Table -->
+        <div class="overflow-x-auto bg-white rounded-lg shadow-md">
+            <table class="w-full table-auto border-collapse">
+                <thead>
+                    <tr>
+                        <th class="p-4 text-left text-gray-600 font-semibold">ID</th>
+                        <th class="p-4 text-left text-gray-600 font-semibold">Name</th>
+                        <th class="p-4 text-left text-gray-600 font-semibold">Price</th>
+                        <th class="p-4 text-left text-gray-600 font-semibold">Quantity</th>
+                        <th class="p-4 text-left text-gray-600 font-semibold">Category</th>
+                        <th class="p-4 text-left text-gray-600 font-semibold">Actions</th>
+                    </tr>
+                </thead>
+                <tbody id="productTableBody" class="text-gray-700">
+                    <!-- Products will be dynamically added here -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+   <!-- At the end of <body> in index.html -->
+<script src="/static/js/inventory.js"></script>
+
+</body>
+</html>
