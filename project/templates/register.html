@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Register</title>
+    <script src="https://cdn.tailwindcss.com"></script> <!-- Tailwind CSS -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body class="bg-gradient-to-r from-pink-200 via-pink-300 to-red-100 py-10 font-inter">
+
+    <!-- Main Container with shadow and padding -->
+    <div class="max-w-md mx-auto bg-white p-8 rounded-xl shadow-2xl space-y-6">
+
+        <!-- Title -->
+        <h2 class="text-3xl font-semibold text-gray-800 text-center">Register</h2>
+
+        <!-- Registration Form -->
+        <form action="/create_user" method="POST" onsubmit="registerUser(event)" class="space-y-6">
+
+            <!-- Username Input -->
+            <div class="flex flex-col space-y-2">
+                <label for="username" class="text-sm font-medium text-gray-600">Username</label>
+                <input type="text" name="username" class="p-4 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-pink-400" required placeholder="Enter your username">
+            </div>
+
+            <!-- Password Input -->
+            <div class="flex flex-col space-y-2">
+                <label for="password" class="text-sm font-medium text-gray-600">Password</label>
+                <input type="password" name="password" class="p-4 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-pink-400" required placeholder="Enter your password">
+            </div>
+
+            <!-- Register Button -->
+            <div class="text-center">
+                <button type="submit" class="px-8 py-4 bg-pink-500 text-white rounded-lg hover:bg-pink-400 focus:outline-none transition-all ease-in-out duration-300 shadow-md">
+                    Register
+                </button>
+            </div>
+        </form>
+
+        <!-- Login Link -->
+        <div class="text-center mt-4">
+            <p class="text-gray-600">Already have an account? 
+                <a href="/" class="text-pink-500 hover:text-pink-600">Login here</a>
+            </p>
+        </div>
+    </div>
+<!-- At the end of <body> in index.html -->
+    <script src="/static/js/register.js"></script>
+
+
+</body>
+</html>
